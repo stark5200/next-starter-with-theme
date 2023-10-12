@@ -7,6 +7,8 @@ import { Inter } from 'next/font/google'
 import Providers from '@/app/providers'
 import ThemeButton from '@/components/ThemeButton'
 
+import { ThemeProvider } from 'next-themes'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -18,26 +20,28 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en' suppressHydrationWarning>
       <body className={inter.className}>
-        <Providers>
-          {/* Header */}
-          <header className='py-6'>
-            <nav className='container flex items-center justify-between'>
-              <ul className='flex gap-6'>
-                <li>
-                  <Link href='/'>Home</Link>
-                </li>
-              </ul>
+        <ThemeProvider>
+          <Providers>
+            {/* Header */}
+            <header className='py-6'>
+              <nav className='container flex items-center justify-between'>
+                <ul className='flex gap-6'>
+                  <li>
+                    <Link href='/'>Home</Link>
+                  </li>
+                </ul>
 
-              <ThemeButton />
-            </nav>
-          </header>
+                <ThemeButton />
+              </nav>
+            </header>
 
-          {/* Page */}
-          <main>{children}</main>
+            {/* Page */}
+            <main>{children}</main>
 
-          {/* Footer */}
-          <footer></footer>
-        </Providers>
+            {/* Footer */}
+            <footer></footer>
+          </Providers>
+        </ThemeProvider>
       </body>
     </html>
   )
