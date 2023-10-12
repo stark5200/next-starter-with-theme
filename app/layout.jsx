@@ -20,7 +20,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en' suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider>
           <Providers>
             {/* Header */}
             <header className='py-6'>
@@ -41,7 +40,6 @@ export default function RootLayout({ children }) {
             {/* Footer */}
             <footer></footer>
           </Providers>
-        </ThemeProvider>
       </body>
     </html>
   )
